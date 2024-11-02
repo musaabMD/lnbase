@@ -1,14 +1,11 @@
-import Link from "next/link";
-import ButtonSignin from "@/components/ButtonSignin";
-import QuestionBox from "@/components/QuestionBox";
+import LandingPage from "@/components/Heropage";
+import ComparisonSection from "@/components/Compare";
 export default function Page() {
   return (
     <>
-      <header className="p-4 flex justify-end max-w-7xl mx-auto">
-      </header>
-      <main>
-    <h1> hi</h1>
-      </main>
+    <LandingPage/>
+<ComparisonSection/>
+    
     </>
   );
 }
