@@ -113,10 +113,10 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 pt-24 pb-16 sm:px-6 lg:px-8">
           <div className="text-center max-w-5xl mx-auto">
             <h1 className="text-6xl md:text-7xl font-black text-gray-900 tracking-tight leading-tight mb-8">
-              Not everything under the sun, just quiz creation done right.
+              Build your own Test Prep Business
             </h1>
             <p className="text-2xl md:text-3xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Lnkbase is essentially quiz management&apos;s greatest hits &mdash; all simplified, refined, 
+              Lnkbase is an advanced quiz management&apos;s greatest hits &mdash; all simplified, refined, 
               and integrated into an organized, easy-to-use platform.
             </p>
 
