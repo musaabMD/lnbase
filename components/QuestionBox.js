@@ -30,7 +30,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-
+import { Suspense } from 'react'
 // Modified questions data structure to properly handle sources
 const questions = [
     {
@@ -197,6 +197,10 @@ export default function QuestionBox() {
   const currentQuestionData = questions[currentQuestion] || null
 
   return (
+    <Suspense>
+
+    <>
+
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Top Navigation Bar */}
       <div className="bg-blue-800 text-white px-4 py-3 flex items-center justify-between fixed top-0 left-0 right-0 z-10 shadow-lg">
@@ -415,5 +419,9 @@ export default function QuestionBox() {
         </div>
       </div>
     </div>
+
+    </>
+    </Suspense>
+
   )
 }

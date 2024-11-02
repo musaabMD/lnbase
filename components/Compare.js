@@ -1,8 +1,5 @@
 "use client"
-import { useState, useEffect } from 'react';
-import { Check, X, Mail, Calculator } from 'lucide-react';
-import { Slider } from "@/components/ui/slider";
-import { Card, CardContent } from "@/components/ui/card";
+import { Check, X } from 'lucide-react';
 import { 
   Table, 
   TableBody, 
@@ -13,164 +10,140 @@ import {
 } from "@/components/ui/table";
 
 const ComparisonSection = () => {
-  const [subscribers, setSubscribers] = useState(100);
-  const [pricePerSub, setPricePerSub] = useState(49);
-  const [revenue, setRevenue] = useState({ usd: 0, sar: 0 });
-
-  useEffect(() => {
-    const revenueUSD = subscribers * pricePerSub;
-    setRevenue({
-      usd: revenueUSD,
-      sar: revenueUSD * 3.75 // SAR conversion rate
-    });
-  }, [subscribers, pricePerSub]);
-
   const features = [
     {
-      category: "Core Features",
+      category: "Business Solution",
       items: [
         {
-          name: "Unlimited Quizzes",
+          name: "Complete Test Prep Business Solution",
+          description: "Full-featured platform for test preparation business",
           lnkbase: true,
-          competitorA: false,
-          competitorB: true,
-          competitorC: false,
-          description: "Create as many quizzes as you need"
+          salla: false,
+          customDev: true,
+          notes: "Lnkbase provides an all-in-one solution"
         },
         {
-          name: "Student Analytics",
+          name: "Content Protection",
+          description: "Prevent copy, paste and unauthorized sharing",
           lnkbase: true,
-          competitorA: true,
-          competitorB: false,
-          competitorC: true,
-          description: "Track student performance and progress"
+          salla: false,
+          customDev: true,
+          notes: "Secure content delivery system"
         },
         {
-          name: "Custom Branding",
+          name: "No Revenue Sharing",
+          description: "Keep 100% of your earnings",
           lnkbase: true,
-          competitorA: false,
-          competitorB: true,
-          competitorC: false,
-          description: "Add your logo and brand colors"
+          salla: false,
+          customDev: true,
+          notes: "Collect full amount from your sales"
         }
       ]
     },
     {
-      category: "Advanced Features",
+      category: "Content Management",
       items: [
         {
-          name: "AI Question Generation",
+          name: "Question Bank Management",
+          description: "Add and update questions easily",
           lnkbase: true,
-          competitorA: false,
-          competitorB: false,
-          competitorC: false,
-          description: "Generate questions automatically"
+          salla: false,
+          customDev: true,
+          notes: "Complete qBank management system"
         },
         {
-          name: "Advanced Reports",
+          name: "Multiple Exam Creation",
+          description: "Create unlimited number of exams",
           lnkbase: true,
-          competitorA: false,
-          competitorB: true,
-          competitorC: false,
-          description: "Detailed insights and analytics"
+          salla: false,
+          customDev: true,
+          notes: "Create as many exams as needed"
+        },
+        {
+          name: "Organized QBank",
+          description: "Sections, tags, and structured content",
+          lnkbase: true,
+          salla: false,
+          customDev: true,
+          notes: "Well-organized question management"
         }
       ]
     },
     {
-      category: "Support & Security",
+      category: "User Experience",
       items: [
+        {
+          name: "Study & Exam Modes",
+          description: "Different modes for learning and testing",
+          lnkbase: true,
+          salla: false,
+          customDev: false,
+          notes: "Flexible learning options"
+        },
+        {
+          name: "Advanced Features",
+          description: "Bookmarking, search, used questions tracking",
+          lnkbase: true,
+          salla: false,
+          customDev: false,
+          notes: "Enhanced user experience features"
+        },
+        {
+          name: "Free Demo Access",
+          description: "Try before you buy option",
+          lnkbase: true,
+          salla: false,
+          customDev: false,
+          notes: "Risk-free trial available"
+        }
+      ]
+    },
+    {
+      category: "Business Management",
+      items: [
+        {
+          name: "Subscription Management",
+          description: "Add/disable users, manage subscriptions",
+          lnkbase: true,
+          salla: false,
+          customDev: true,
+          notes: "Complete user management"
+        },
+        {
+          name: "Email Collection",
+          description: "Built-in lead generation tools",
+          lnkbase: true,
+          salla: false,
+          customDev: false,
+          notes: "Grow your customer base"
+        },
+        {
+          name: "Business Dashboard",
+          description: "Complete overview of your business",
+          lnkbase: true,
+          salla: false,
+          customDev: true,
+          notes: "Comprehensive analytics"
+        },
         {
           name: "24/7 Support",
+          description: "Round-the-clock customer service",
           lnkbase: true,
-          competitorA: false,
-          competitorB: false,
-          competitorC: false,
-          description: "Round-the-clock assistance"
-        },
-        {
-          name: "API Access",
-          lnkbase: true,
-          competitorA: true,
-          competitorB: false,
-          competitorC: false,
-          description: "Full API integration capabilities"
+          salla: false,
+          customDev: false,
+          notes: "Always available support"
         }
       ]
     }
   ];
 
   return (
-    <>
     <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-      {/* Revenue Calculator */}
-      <div className="mb-24">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Revenue Calculator</h2>
-          <p className="text-xl text-gray-600">
-            Estimate your monthly revenue based on subscribers and pricing
-          </p>
-        </div>
-
-        <Card className="bg-white shadow-xl border-2 border-green-100">
-          <CardContent className="p-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-8">
-                <div>
-                  <label className="block text-lg font-medium mb-4">
-                    Number of Monthly Subscribers: {subscribers}
-                  </label>
-                  <Slider
-                    value={[subscribers]}
-                    onValueChange={([value]) => setSubscribers(value)}
-                    min={10}
-                    max={1000}
-                    step={10}
-                    className="mb-2"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-lg font-medium mb-4">
-                    Price per Subscriber: ${pricePerSub}
-                  </label>
-                  <Slider
-                    value={[pricePerSub]}
-                    onValueChange={([value]) => setPricePerSub(value)}
-                    min={10}
-                    max={100}
-                    step={1}
-                    className="mb-2"
-                  />
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-xl p-8 flex flex-col justify-center">
-                <div className="text-center space-y-4">
-                  <div>
-                    <h3 className="text-xl font-medium text-gray-600">Monthly Revenue</h3>
-                    <p className="text-5xl font-bold text-green-600">
-                      ${revenue.usd.toLocaleString()}
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-medium text-gray-600">Monthly Revenue (SAR)</h3>
-                    <p className="text-5xl font-bold text-green-600">
-                      SAR {revenue.sar.toLocaleString()}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Enhanced Comparison Section */}
       <div className="mb-24">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">How We Compare</h2>
           <p className="text-xl text-gray-600">
-            See why Lnkbase is the preferred choice for educational institutions
+            See why Lnkbase is the smartest choice for your test prep business
           </p>
         </div>
 
@@ -180,16 +153,15 @@ const ComparisonSection = () => {
               <TableRow className="bg-gray-50">
                 <TableHead className="w-1/3">Feature</TableHead>
                 <TableHead className="text-center bg-green-50 w-1/6">Lnkbase</TableHead>
-                <TableHead className="text-center w-1/6">Competitor A</TableHead>
-                <TableHead className="text-center w-1/6">Competitor B</TableHead>
-                <TableHead className="text-center w-1/6">Competitor C</TableHead>
+                <TableHead className="text-center w-1/6">Salla.com<br/>(PDF Sales)</TableHead>
+                <TableHead className="text-center w-1/6">Custom Development<br/>(High Cost)</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {features.map((category) => (
                 <>
-                  <TableRow className="bg-gray-50">
-                    <TableCell colSpan={5} className="font-bold text-lg py-4">
+                  <TableRow key={category.category} className="bg-gray-50">
+                    <TableCell colSpan={4} className="font-bold text-lg py-4">
                       {category.category}
                     </TableCell>
                   </TableRow>
@@ -209,21 +181,14 @@ const ComparisonSection = () => {
                         )}
                       </TableCell>
                       <TableCell className="text-center">
-                        {feature.competitorA ? (
+                        {feature.salla ? (
                           <Check className="h-6 w-6 text-green-600 mx-auto" />
                         ) : (
                           <X className="h-6 w-6 text-red-600 mx-auto" />
                         )}
                       </TableCell>
                       <TableCell className="text-center">
-                        {feature.competitorB ? (
-                          <Check className="h-6 w-6 text-green-600 mx-auto" />
-                        ) : (
-                          <X className="h-6 w-6 text-red-600 mx-auto" />
-                        )}
-                      </TableCell>
-                      <TableCell className="text-center">
-                        {feature.competitorC ? (
+                        {feature.customDev ? (
                           <Check className="h-6 w-6 text-green-600 mx-auto" />
                         ) : (
                           <X className="h-6 w-6 text-red-600 mx-auto" />
@@ -238,25 +203,6 @@ const ComparisonSection = () => {
         </div>
       </div>
     </div>
-
-    
-    <footer className="bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="md:flex md:items-center md:justify-between">
-            <div className="flex justify-center space-x-6 md:order-2">
-              <a href="#" className="text-gray-400 hover:text-gray-500">Contact</a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">Terms</a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">Privacy</a>
-            </div>
-            <div className="mt-8 md:mt-0 md:order-1">
-              <p className="text-center text-base text-gray-400">
-                &copy; 2024 Lnkbase. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </>
   );
 };
 

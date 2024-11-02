@@ -1,21 +1,86 @@
 "use client"
 import { Suspense } from 'react';
-import { Check, X, Mail } from 'lucide-react';
+import { 
+  CheckCircle, 
+  Shield, 
+  Database, 
+  Users, 
+  Play, 
+  Mail,
+  FileSpreadsheet,
+  Tags,
+  BookOpen,
+  Search,
+  DollarSign,
+  Layout,
+  Check
+} from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const LandingPage = () => {
   const features = [
-    { title: 'Unlimited projects' },
-    { title: 'Loads of storage space' },
-    { title: 'Invite guests for free' },
-    { title: 'Every feature you need' },
-    { title: 'Innovative client access' },
-    { title: 'Rock-solid uptime reliability' },
-    { title: '24/7/365 top-notch support' },
-    { title: 'Complimentary classes' },
-    { title: 'Complimentary classes' }
+    { 
+      title: 'Complete Test Prep Solution',
+      icon: CheckCircle,
+      description: 'Full-featured platform for test preparation business'
+    },
+    { 
+      title: 'Content Protection',
+      icon: Shield,
+      description: 'Prevent unauthorized sharing and copying of content'
+    },
+    { 
+      title: 'Question Bank Management',
+      icon: Database,
+      description: 'Easily add and update your question database'
+    },
+    { 
+      title: 'Subscription Management',
+      icon: Users,
+      description: 'Add and manage user access with ease'
+    },
+    { 
+      title: 'Free Demo Access',
+      icon: Play,
+      description: 'Let users try before they buy'
+    },
+    { 
+      title: 'Lead Generation',
+      icon: Mail,
+      description: 'Built-in email collection tools'
+    },
+    { 
+      title: 'Multiple Exam Creation',
+      icon: FileSpreadsheet,
+      description: 'Create unlimited number of exams'
+    },
+    { 
+      title: 'Organized Content',
+      icon: Tags,
+      description: 'Structured qBank with sections and tags'
+    },
+    { 
+      title: 'Dual Mode Learning',
+      icon: BookOpen,
+      description: 'Study mode and exam mode options'
+    },
+    { 
+      title: 'Advanced Features',
+      icon: Search,
+      description: 'Bookmarking, search, and progress tracking'
+    },
+    { 
+      title: '100% Revenue',
+      icon: DollarSign,
+      description: 'No revenue sharing - keep all your earnings'
+    },
+    { 
+      title: 'Simple Interface',
+      icon: Layout,
+      description: 'Clean and intuitive website design'
+    }
   ];
 
   const demoButtons = [
@@ -78,17 +143,23 @@ const LandingPage = () => {
             
             {/* Features List - New Design */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className="bg-pink-50 rounded-lg p-6 flex items-center gap-4 transform hover:scale-105 transition-all"
-                >
-                  <div className="bg-yellow-400 rounded-full p-2 shrink-0">
-                    <Check className="h-5 w-5 text-white" />
+              {features.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="bg-[#FFD572] rounded-lg p-6 flex items-start gap-4 transform hover:scale-105 transition-all hover:shadow-lg"
+                  >
+                    <div className="bg-white rounded-full p-2 shrink-0">
+                      <IconComponent className="h-6 w-6 text-[#FFD572]" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-bold text-lg text-gray-900">{feature.title}</span>
+                      <span className="text-sm text-gray-700 mt-1">{feature.description}</span>
+                    </div>
                   </div>
-                  <span className="font-semibold text-lg text-gray-900">{feature.title}</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Try It Section */}
