@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
+import RevenueCalculator from './reve';
 const LandingPage = () => {
   const features = [
     { 
@@ -199,7 +199,10 @@ const LandingPage = () => {
                 ))}
               </div>
             </div>
+
           </section>
+          <RevenueCalculator/>
+
         </div>
       </div>
     </Suspense>
