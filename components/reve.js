@@ -23,7 +23,7 @@ const RevenueCalculator = () => {
 
 
 
-    <div className="w-full max-w-4xl p-4 items-center">
+    <div className="w-full max-w-9xl p-4 items-center">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
